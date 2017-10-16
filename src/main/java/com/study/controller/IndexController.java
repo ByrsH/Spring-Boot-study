@@ -22,11 +22,11 @@ public class IndexController {
     public String index(HttpServletRequest request) {
         WebUtils.setSessionAttribute(request, "index", "hello");
         WebUtils.setSessionAttribute(request, "yangrs", "24");
-        return "hello";
+        return "index/hello";
     }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello(HttpServletRequest request) {
-        return "hello";
+        return "index/hello";
     }
 }
