@@ -32,6 +32,17 @@
 
         }
     })
+
+    $.ajax({
+        type: 'get',
+        url:'/api/index2',
+        success: function (res) {
+
+        },
+        error:function (res) {
+
+        }
+    })
 </script>
 
 </html>

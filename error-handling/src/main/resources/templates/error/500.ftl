@@ -1,9 +1,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>5xx page</title>
+    <title>500 page</title>
 </head>
 <body>
-    <span>5xx page!</span>
+    <span>500 page!</span>
 </body>
 </html>

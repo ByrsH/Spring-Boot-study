@@ -3,6 +3,7 @@ package com.springboot.errorhandling.filter;
 import com.springboot.errorhandling.web.ErrorCode;
 import com.springboot.errorhandling.web.GlobalErrorException;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.*;

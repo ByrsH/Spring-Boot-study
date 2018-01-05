@@ -24,6 +24,11 @@ public class ApiResponseBody<T> implements Serializable {
         this.result = result;
     }
 
+    public ApiResponseBody(int error, String message){
+        this.error = error;
+        this.message = message;
+    }
+
     public int getError() {
         return error;
     }
