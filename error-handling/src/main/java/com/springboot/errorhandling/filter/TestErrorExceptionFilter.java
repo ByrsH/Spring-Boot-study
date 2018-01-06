@@ -1,5 +1,6 @@
 package com.springboot.errorhandling.filter;
 
+import com.springboot.errorhandling.web.CustomRuntimeException;
 import com.springboot.errorhandling.web.ErrorCode;
 import com.springboot.errorhandling.web.GlobalErrorException;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,7 @@ import java.io.IOException;
  * @Date: Greated in 19:57 2018/1/4
  * @Modified By:
  */
-
+@Component
 public class TestErrorExceptionFilter implements Filter {
 
     @Override
@@ -27,10 +28,9 @@ public class TestErrorExceptionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        try {
-            judge(servletRequest, servletResponse);
-        } catch (GlobalErrorException e) {
-            e.printStackTrace();
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        if (request.getRequestURI().contains("/api/test/filterException")){
+            throw new CustomRuntimeException(ErrorCode.ERROR_PARAMETER);
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
@@ -40,7 +40,4 @@ public class TestErrorExceptionFilter implements Filter {
 
     }
 
-    private void judge(ServletRequest servletRequest, ServletResponse servletResponse) throws GlobalErrorException{
-        throw new GlobalErrorException(ErrorCode.ERROR_PARAMETER);
-    }
 }

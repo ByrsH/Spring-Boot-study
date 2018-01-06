@@ -19,4 +19,9 @@ public class IndexController {
     public String hello(HttpServletRequest request){
         return "hello";
     }
+
+    @RequestMapping(value = "/filterException")
+    public String filterExp(HttpServletRequest request){
+        return "filter";
+    }
 }

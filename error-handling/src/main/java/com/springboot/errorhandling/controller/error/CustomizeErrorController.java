@@ -25,7 +25,7 @@ import java.util.Map;
  * @Date: Greated in 16:31 2018/1/3
  * @Modified By:
  */
-@Controller
+//@Controller
 public class CustomizeErrorController extends BasicErrorController{
 
     public CustomizeErrorController(){

@@ -1,6 +1,7 @@
 package com.springboot.errorhandling.support;
 
 import com.springboot.errorhandling.util.ApiUtils;
+import com.springboot.errorhandling.web.CustomRuntimeException;
 import com.springboot.errorhandling.web.ErrorCode;
 import com.springboot.errorhandling.web.ErrorCodeInterface;
 import com.springboot.errorhandling.web.GlobalErrorException;
@@ -24,6 +25,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = GlobalErrorException.class)
     @ResponseBody
     public ResponseEntity jsonErrorHandle(HttpServletRequest request, GlobalErrorException exception){
+        ErrorCodeInterface errorCodeInterface = exception.getErrorCode();
+        return ApiUtils.getResponseBody(errorCodeInterface);
+    }
+
+    @ExceptionHandler(value = CustomRuntimeException.class)
+    @ResponseBody
+    public ResponseEntity customRuntimeExt(HttpServletRequest request, CustomRuntimeException exception){
         ErrorCodeInterface errorCodeInterface = exception.getErrorCode();
         return ApiUtils.getResponseBody(errorCodeInterface);
     }

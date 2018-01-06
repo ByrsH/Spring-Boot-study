@@ -42,4 +42,9 @@ public class IndexServiceController {
         return ApiUtils.getResponseBody(ErrorCode.OK);
     }
 
+    @RequestMapping(value = "/test/filterException")
+    public ResponseEntity filterExp(HttpServletRequest request) throws Exception{
+        return ApiUtils.getResponseBody(ErrorCode.OK);
+    }
+
 }
