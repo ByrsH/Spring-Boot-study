@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -44,6 +45,11 @@ public class IndexServiceController {
 
     @RequestMapping(value = "/test/filterException")
     public ResponseEntity filterExp(HttpServletRequest request) throws Exception{
+        return ApiUtils.getResponseBody(ErrorCode.OK);
+    }
+
+    @RequestMapping(value = "/test/paramError")
+    public ResponseEntity filterExp(@RequestParam(value = "param")String param, HttpServletRequest request) throws Exception{
         return ApiUtils.getResponseBody(ErrorCode.OK);
     }
 

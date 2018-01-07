@@ -25,11 +25,12 @@ import java.util.Map;
  * @Date: Greated in 16:31 2018/1/3
  * @Modified By:
  */
-//@Controller
+
+@Controller
 public class CustomizeErrorController extends BasicErrorController{
 
-    public CustomizeErrorController(){
-        super(new DefaultErrorAttributes(), new ErrorProperties());
+    public CustomizeErrorController(ErrorAttributes errorAttributes, ErrorProperties errorProperties, List<ErrorViewResolver> errorViewResolvers){
+        super(errorAttributes, errorProperties, errorViewResolvers);
     }
 
     @RequestMapping(
@@ -40,7 +41,7 @@ public class CustomizeErrorController extends BasicErrorController{
         Map<String, Object> model = Collections.unmodifiableMap(this.getErrorAttributes(request, this.isIncludeStackTrace(request, MediaType.TEXT_HTML)));
         response.setStatus(status.value());
         ModelAndView modelAndView = this.resolveErrorView(request, response, status, model);
-        return modelAndView == null ? new ModelAndView("error/"+status.value(), model) : modelAndView;
+        return modelAndView == null ? new ModelAndView("error", model) : modelAndView;
     }
 
     @RequestMapping
@@ -48,7 +49,7 @@ public class CustomizeErrorController extends BasicErrorController{
     public ResponseEntity<Map<String, Object>> error(HttpServletRequest request) {
         Map<String, Object> body = this.getErrorAttributes(request, this.isIncludeStackTrace(request, MediaType.ALL));
         HttpStatus status = this.getStatus(request);
-        ApiResponseBody responseBody = new ApiResponseBody((int)body.get("status"), (String) body.get("error"));
+        ApiResponseBody responseBody = new ApiResponseBody((int)body.get("status"), (String) body.get("error") + ": " + (String) body.get("message"));
         return new ResponseEntity(responseBody, status);
     }
 

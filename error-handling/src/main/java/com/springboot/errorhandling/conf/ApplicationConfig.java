@@ -1,4 +1,4 @@
-package com.springboot.errorhandling;
+package com.springboot.errorhandling.conf;
 
 import com.springboot.errorhandling.filter.TestExceptionInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
