@@ -23,4 +23,10 @@ public class GlobalErrorException extends Exception{
     public void setErrorCode(ErrorCodeInterface errorCode) {
         this.errorCode = errorCode;
     }
+
+    @Override
+    public String toString() {
+        return "Exception: error message: " + errorCode.getErrorMessage()
+                + "    error code: " + errorCode.getErrorCode();
+    }
 }
