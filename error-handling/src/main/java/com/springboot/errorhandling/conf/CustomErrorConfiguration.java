@@ -18,7 +18,7 @@ import java.util.List;
 
 /**
  * @Author: yrs
- * @Description:
+ * @Description: 该类是模仿 ErrorMvcAutoConfiguration
  * @Date: Greated in 15:40 2018/1/7
  * @Modified By:
  */

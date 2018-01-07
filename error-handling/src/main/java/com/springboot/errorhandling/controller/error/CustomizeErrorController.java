@@ -52,6 +52,4 @@ public class CustomizeErrorController extends BasicErrorController{
         ApiResponseBody responseBody = new ApiResponseBody((int)body.get("status"), (String) body.get("error") + ": " + (String) body.get("message"));
         return new ResponseEntity(responseBody, status);
     }
-
-
 }

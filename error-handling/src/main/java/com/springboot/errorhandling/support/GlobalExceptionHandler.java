@@ -24,10 +24,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
     private static final String DEFAULT_ERROR_VIEW = "error";
-
-
 
     @ExceptionHandler(value = GlobalErrorException.class)
     @ResponseBody
@@ -47,7 +44,6 @@ public class GlobalExceptionHandler {
     }
     */
 
-
     @ExceptionHandler(value = CustomRuntimeException.class)
     @ResponseBody
     public ResponseEntity customRuntimeExt(HttpServletRequest request, CustomRuntimeException exception){
@@ -65,5 +61,4 @@ public class GlobalExceptionHandler {
         return ApiUtils.getResponseBody(errorCode);
     }
     */
-
 }
