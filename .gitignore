@@ -34,5 +34,11 @@ spring-boot-study/.idea/
 spring-boot-study/target/
 spring-boot-study/*.iml
 
+redis/.idea/
+redis/.mvn/
+redis/target/
+redis/*.iml
+redis/mvnw*
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
