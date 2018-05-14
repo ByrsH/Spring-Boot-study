@@ -31,9 +31,7 @@ public class RedisConfig {
     //配置连接工厂
     @Bean
     public RedisConnectionFactory redisCF(){
-        JedisConnectionFactory factory = new JedisConnectionFactory();
-        factory.setHostName(redisHost);
-        factory.setPort(redisPort);
+        JedisConnectionFactory factory = new JedisConnectionFactory(new RedisStandaloneConfiguration(redisHost,redisPort));
         factory.afterPropertiesSet();
         return factory;
     }
