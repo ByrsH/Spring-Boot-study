@@ -23,6 +23,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(HttpServletRequest request){
         stringRedisTemplate.opsForValue().set("yrs", "aa");
+        System.out.println(stringRedisTemplate.opsForValue().get("yrs"));
         return "ok";
     }
 
